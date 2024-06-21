@@ -12,15 +12,12 @@ import Upload from "./upload";
 
 
 export default function Navbar() {
-  // Init user state
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChangedHelper((user) => {
       setUser(user);
     });
-
-    // Cleanup subscription on unmount
     return () => unsubscribe();
   });
 

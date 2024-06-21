@@ -19,7 +19,6 @@ export async function uploadVideo(file: File) {
     fileExtension: file.name.split('.').pop()
   });
 
-  // Upload the file using signed URL
   const uploadResult = await fetch(response.data.url, {
     method: 'PUT',
     body: file,
